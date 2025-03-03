@@ -3,6 +3,11 @@
 -- config. This will add also the recommended keymaps.
 
 return {
+
+  {
+    'tpope/vim-fugitive',
+  },
+
   {
     'lewis6991/gitsigns.nvim',
     opts = {
