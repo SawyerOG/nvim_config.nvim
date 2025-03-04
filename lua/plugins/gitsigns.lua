@@ -1,6 +1,68 @@
--- Adds git related signs to the gutter, as well as utilities for managing changes
--- NOTE: gitsigns is already included in init.lua but contains only the base
--- config. This will add also the recommended keymaps.
+-- Function to stage/unstage the file under cursor in neo-tree
+local function git_toggle_stage_current_file()
+  -- Get the neo-tree state
+  local state = require('neo-tree.sources.manager').get_state 'filesystem'
+  local tree = state.tree
+
+  if not tree then
+    print 'No neo-tree instance found'
+    return
+  end
+
+  -- Get the node under cursor
+  local node = tree:get_node()
+  if not node then
+    print 'No file selected'
+    return
+  end
+
+  -- Check if it's a file (not a directory)
+  if node.type ~= 'file' then
+    print 'Selected item is not a file'
+    return
+  end
+
+  -- Get the file path
+  local file_path = node.path
+
+  -- Check if file is already staged
+  local staged = vim.fn.systemlist 'git diff --name-only --cached'
+  local is_staged = false
+  for _, staged_file in ipairs(staged) do
+    if vim.fn.fnamemodify(file_path, ':t') == vim.fn.fnamemodify(staged_file, ':t') then
+      is_staged = true
+      break
+    end
+  end
+
+  if is_staged then
+    -- Unstage the file
+    vim.cmd(string.format('Git reset %s', vim.fn.fnameescape(file_path)))
+    print('File unstaged: ' .. file_path)
+  else
+    -- Stage the file
+    vim.cmd(string.format('Git add %s', vim.fn.fnameescape(file_path)))
+    print('File staged: ' .. file_path)
+  end
+end
+
+-- Create a command to call this function
+vim.api.nvim_create_user_command(
+  'GitToggleStageCurrent',
+  git_toggle_stage_current_file,
+  { desc = 'Toggle staging of the current file under cursor in neo-tree' }
+)
+
+-- Keymapping example
+vim.keymap.set('n', 'ga', git_toggle_stage_current_file, {
+  desc = 'Git toggle stage current file in neo-tree',
+  silent = false,
+})
+
+vim.keymap.set('n', '<leader>gc', ':Git commit', {
+  desc = 'Git commit staged files',
+  silent = false,
+})
 
 return {
 
