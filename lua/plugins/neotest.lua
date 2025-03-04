@@ -21,8 +21,8 @@ return {
 
       vim.keymap.set('n', '<leader>gt', function()
         local neotest = require 'neotest'
-        neotest.output.open { enter = true, auto_close = true, last_run = true }
         neotest.run.run()
+        neotest.output.open { enter = true, auto_close = true }
       end, { desc = 'Run nearest Go test and show output' })
 
       vim.keymap.set('n', '<leader>go', function()

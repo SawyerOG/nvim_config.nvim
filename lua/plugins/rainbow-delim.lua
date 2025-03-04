@@ -13,8 +13,8 @@ return {
         },
         query = {
           [''] = 'rainbow-delimiters', -- Default query for delimiters
-          lua = 'rainbow-blocks', -- Lua-specific blocks (optional)
-          go = 'rainbow-parens', -- Go-specific parentheses (optional)
+          -- lua = 'rainbow-blocks', -- Lua-specific blocks (optional)
+          -- go = 'rainbow-parens', -- Go-specific parentheses (optional)
         },
         highlight = {
           'RainbowDelimiterRed',
