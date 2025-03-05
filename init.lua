@@ -1,7 +1,6 @@
 require 'opts'
 require 'keymaps'
-
-require 'functions.git'
+require 'functions.floaterm'
 
 --  See `:help lua-guide-autocommands`
 vim.api.nvim_create_autocmd('TextYankPost', {
