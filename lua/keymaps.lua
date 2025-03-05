@@ -72,3 +72,5 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 vim.keymap.set('n', '<leader>xx', ':source %', { desc = 'save and run the current lua file' })
+
+vim.keymap.set('v', '<C-d>', 'y:%s/<C-r>"//c<Left><Left>', { noremap = true })
