@@ -7,7 +7,7 @@ local state = {
 
 local function create_floating_terminal(opts)
   opts = opts or {}
-  local width = opts.width or math.floor(vim.o.columns * 0.8)
+  local width = opts.width or math.floor(vim.o.columns * 0.9)
   local height = opts.width or math.floor(vim.o.lines * 0.9)
 
   local col = math.floor((vim.o.columns - width) / 2)
