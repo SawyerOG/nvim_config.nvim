@@ -1,6 +1,5 @@
 require 'opts'
 require 'keymaps'
-require 'functions.git'
 require 'functions.floaterm'
 
 vim.opt.guicursor =
