@@ -22,12 +22,20 @@ return {
       vim.keymap.set('n', '<leader>gt', function()
         local neotest = require 'neotest'
         neotest.run.run()
-        neotest.output.open { enter = true, auto_close = true }
+        neotest.output.open { enter = true }
       end, { desc = 'Run nearest Go test and show output' })
 
       vim.keymap.set('n', '<leader>go', function()
         require('neotest').output.open { enter = true }
       end, { desc = 'Open test output' })
+
+      vim.keymap.set('n', '<leader>gs', function()
+        require('neotest').summary.open()
+      end, { desc = 'Open test summary panel' })
+
+      vim.keymap.set('n', '<leader>gd', function()
+        require('neotest').run.run { vim.fn.expand '%', strategy = 'dap' }
+      end, { desc = 'Run and debug nearest Go test and show output' })
     end,
   },
 }

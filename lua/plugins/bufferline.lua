@@ -20,8 +20,12 @@ return {
         max_name_length = 30,
         max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
         tab_size = 21,
-        diagnostics = true,
-        diagnostics_update_in_insert = true,
+        diagnostics = 'nvim_lsp',
+        -- diagnostics_update_in_insert = true,
+        -- diagnostics_indicator = function(count, _level, diagnostics_dict, _context)
+        diagnostics_indicator = function(count)
+          return '(' .. count .. ')'
+        end,
         color_icons = true,
         show_buffer_icons = true,
         show_buffer_close_icons = true,
@@ -33,7 +37,7 @@ return {
         show_tab_indicators = false,
         indicator = {
           -- icon = '▎', -- this should be omitted if indicator style is not 'icon'
-          style = 'none', -- Options: 'icon', 'underline', 'none'
+          style = 'underline', -- Options: 'icon', 'underline', 'none'
         },
         icon_pinned = '󰐃',
         minimum_padding = 1,
@@ -47,9 +51,8 @@ return {
         },
         buffer_selected = {
           bold = true,
-          italic = false,
+          italic = true,
         },
-        -- separator_selected = {},
         -- tab_selected = {},
         -- background = {},
         -- indicator_selected = {},
