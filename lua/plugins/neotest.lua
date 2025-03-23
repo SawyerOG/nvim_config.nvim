@@ -10,7 +10,7 @@ return {
     },
     config = function()
       local neotest_golang_opts = {
-        go_test_args = { "-v" }, -- Verbose output like go test -v
+        go_test_args = { "-v", "-timeout", "30s" }, -- Verbose output like go test -v
         warn_test_name_dupes = true, -- Warn about duplicate test names
       } -- Specify custom configuration
       require("neotest").setup {
