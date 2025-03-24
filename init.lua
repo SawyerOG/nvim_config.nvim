@@ -62,11 +62,11 @@ require("lazy").setup({
   },
 
   require "plugins.debug",
-  require "plugins.indent_line",
+  -- require "plugins.indent_line",
   require "plugins.lint",
   require "plugins.autopairs",
-  require "plugins.neo-tree",
-  require "plugins.gitsigns",
+  -- require "plugins.neo-tree",
+  -- require "plugins.gitsigns",
   require "plugins.whichkey",
   require "plugins.telescope",
   require "plugins.lsp",
@@ -79,6 +79,7 @@ require("lazy").setup({
   require "plugins.rainbow-delim",
   require "plugins.flash",
   require "plugins.autotag",
+  require "plugins.snacks",
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
