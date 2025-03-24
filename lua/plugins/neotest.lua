@@ -8,7 +8,6 @@ return {
       "nvim-treesitter/nvim-treesitter",
       { "fredrikaverpil/neotest-golang", version = "*" }, -- Installation
     },
-    lazy = true,
     config = function()
       local neotest_golang_opts = {
         go_test_args = { "-v", "-timeout", "30s" }, -- Verbose output like go test -v

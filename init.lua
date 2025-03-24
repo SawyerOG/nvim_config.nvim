@@ -25,39 +25,49 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-  {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000, -- Make sure to load this before all the other start plugins.
-    config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      -- require('tokyonight').setup {
-      require("gruvbox").setup {
-        terminal_colors = true, -- add neovim terminal colors
-        undercurl = true,
-        underline = true,
-        bold = true,
-        italic = {
-          strings = true,
-          emphasis = true,
-          comments = true,
-          operators = false,
-          folds = true,
-        },
-        strikethrough = true,
-        invert_selection = false,
-        invert_signs = false,
-        invert_tabline = false,
-        invert_intend_guides = false,
-        inverse = true, -- invert background for search, diffs, statuslines and errors
-        contrast = "hard", -- can be "hard", "soft" or empty string
-        palette_overrides = {},
-        overrides = {},
-        dim_inactive = false,
-        transparent_mode = false,
-      }
+  "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
+  -- {
+  --   "ellisonleao/gruvbox.nvim",
+  --   priority = 1000, -- Make sure to load this before all the other start plugins.
+  --   config = function()
+  --     ---@diagnostic disable-next-line: missing-fields
+  --     -- require('tokyonight').setup {
+  --     require("gruvbox").setup {
+  --       terminal_colors = true, -- add neovim terminal colors
+  --       undercurl = true,
+  --       underline = true,
+  --       bold = true,
+  --       italic = {
+  --         strings = true,
+  --         emphasis = true,
+  --         comments = true,
+  --         operators = false,
+  --         folds = true,
+  --       },
+  --       strikethrough = true,
+  --       invert_selection = false,
+  --       invert_signs = false,
+  --       invert_tabline = false,
+  --       invert_intend_guides = false,
+  --       inverse = true, -- invert background for search, diffs, statuslines and errors
+  --       contrast = "hard", -- can be "hard", "soft" or empty string
+  --       palette_overrides = {},
+  --       overrides = {},
+  --       dim_inactive = false,
+  --       transparent_mode = false,
+  --     }
+  --
+  --     vim.cmd.colorscheme "gruvbox"
+  --   end,
+  -- },
 
-      vim.cmd.colorscheme "gruvbox"
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      vim.cmd [[colorscheme tokyonight-night]]
     end,
   },
 
