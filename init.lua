@@ -25,7 +25,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
+  -- "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
   {
     "ellisonleao/gruvbox.nvim",
     priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -66,7 +66,7 @@ require("lazy").setup({
   require "plugins.lint",
   require "plugins.autopairs",
   -- require "plugins.neo-tree",
-  -- require "plugins.gitsigns",
+  require "plugins.gitsigns",
   require "plugins.whichkey",
   require "plugins.telescope",
   require "plugins.lsp",
