@@ -18,6 +18,8 @@ return {
       vim.keymap.set({ "n", "x" }, "s", "<Nop>")
       require("mini.surround").setup()
 
+      require("mini.pairs").setup()
+
       require("mini.comment").setup {
         mappings = {
           -- Toggle comment (like `gcip` - comment inner paragraph) for both
