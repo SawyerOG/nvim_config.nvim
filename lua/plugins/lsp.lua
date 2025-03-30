@@ -226,6 +226,10 @@ return {
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         ts_ls = {},
+        elixirls = {
+          -- Unix
+          cmd = { "/home/so/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
+        },
         --
 
         lua_ls = {
