@@ -62,14 +62,42 @@ require("lazy").setup({
   -- },
 
   {
-    "folke/tokyonight.nvim",
+    "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
     config = function()
-      vim.cmd [[colorscheme tokyonight-night]]
+      require("kanagawa").setup {
+        -- compile = true,
+        functionStyle = { bold = true },
+        dimInactive = true,
+        overrides = function(colors)
+          local theme = colors.theme
+          return {
+            -- NormalFloat = { bg = "none" },
+            -- FloatBorder = { bg = "none" },
+            -- FloatTitle = { bg = "none" },
+            -- NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
+            -- LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+            -- MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+            Pmenu = { fg = theme.ui.shade0, bg = "NONE" },
+            PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+            PmenuSbar = { bg = theme.ui.bg_m1 },
+            PmenuThumb = { bg = theme.ui.bg_p2 },
+          }
+        end,
+      }
+      vim.cmd [[colorscheme kanagawa-wave]]
     end,
   },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {},
+  --   config = function()
+  --     vim.cmd [[colorscheme tokyonight-night]]
+  --   end,
+  -- },
 
   require "plugins.debug",
   -- require "plugins.indent_line",
@@ -92,7 +120,7 @@ require("lazy").setup({
   require "plugins.autotag",
   require "plugins.snacks",
   require "plugins.trouble",
-  require "plugins.noice",
+  -- require "plugins.noice",
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
