@@ -67,18 +67,12 @@ require("lazy").setup({
     priority = 1000,
     config = function()
       require("kanagawa").setup {
-        -- compile = true,
+        compile = true,
         functionStyle = { bold = true },
-        dimInactive = true,
+        dimInactive = false,
         overrides = function(colors)
           local theme = colors.theme
           return {
-            -- NormalFloat = { bg = "none" },
-            -- FloatBorder = { bg = "none" },
-            -- FloatTitle = { bg = "none" },
-            -- NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
-            -- LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-            -- MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
             Pmenu = { fg = theme.ui.shade0, bg = "NONE" },
             PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
             PmenuSbar = { bg = theme.ui.bg_m1 },
@@ -87,6 +81,8 @@ require("lazy").setup({
         end,
       }
       vim.cmd [[colorscheme kanagawa-wave]]
+      -- vim.cmd [[colorscheme kanagawa-dragon]]
+      -- vim.cmd [[colorscheme kanagawa-lotus]]
     end,
   },
   -- {

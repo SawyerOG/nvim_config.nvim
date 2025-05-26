@@ -140,13 +140,25 @@ return {
     dap.listeners.before.event_terminated["dapui_config"] = dapui.close
     dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
+    require("dap-go").setup()
     -- Install golang specific config
-    require("dap-go").setup {
-      delve = {
-        -- On Windows delve must be run attached or it crashes.
-        -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
-        detached = vim.fn.has "win32" == 0,
-      },
-    }
+    -- require("dap-go").setup {
+    --   delve = {
+    --     -- On Windows delve must be run attached or it crashes.
+    --     -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
+    --     -- detached = vim.fn.has "win32" == 0,
+    --     -- cmd = { "dlv", "debug", "--log", "--log-output=debugger" },
+    --   },
+    --   dap_configurations = {
+    --     {
+    --       type = "go",
+    --       name = "Debug (main package)",
+    --       request = "launch",
+    --       program = "${file}", -- Path to your main.go
+    --       outputMode = "remote", -- Use remote terminal to capture output
+    --       outputCapture = "stdio",
+    --     },
+    --   },
+    -- }
   end,
 }
