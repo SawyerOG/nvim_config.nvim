@@ -2,8 +2,8 @@ require "opts"
 require "keymaps"
 require "functions.floaterm"
 
-vim.opt.guicursor =
-  "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+-- vim.opt.guicursor =
+--   "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 --  See `:help lua-guide-autocommands`
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -62,29 +62,41 @@ require("lazy").setup({
   -- },
 
   {
-    "rebelot/kanagawa.nvim",
+    'ribru17/bamboo.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-      require("kanagawa").setup {
-        compile = true,
-        functionStyle = { bold = true },
-        dimInactive = false,
-        overrides = function(colors)
-          local theme = colors.theme
-          return {
-            Pmenu = { fg = theme.ui.shade0, bg = "NONE" },
-            PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
-            PmenuSbar = { bg = theme.ui.bg_m1 },
-            PmenuThumb = { bg = theme.ui.bg_p2 },
-          }
-        end,
+      require('bamboo').setup {
+        -- optional configuration here
       }
-      vim.cmd [[colorscheme kanagawa-wave]]
-      -- vim.cmd [[colorscheme kanagawa-dragon]]
-      -- vim.cmd [[colorscheme kanagawa-lotus]]
+      require('bamboo').load()
     end,
   },
+
+  -- {
+  --   "rebelot/kanagawa.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require("kanagawa").setup {
+  --       compile = true,
+  --       functionStyle = { bold = true },
+  --       dimInactive = false,
+  --       overrides = function(colors)
+  --         local theme = colors.theme
+  --         return {
+  --           Pmenu = { fg = theme.ui.shade0, bg = "NONE" },
+  --           PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+  --           PmenuSbar = { bg = theme.ui.bg_m1 },
+  --           PmenuThumb = { bg = theme.ui.bg_p2 },
+  --         }
+  --       end,
+  --     }
+  --     vim.cmd [[colorscheme kanagawa-wave]]
+  --     -- vim.cmd [[colorscheme kanagawa-dragon]]
+  --     -- vim.cmd [[colorscheme kanagawa-lotus]]
+  --   end,
+  -- },
   -- {
   --   "folke/tokyonight.nvim",
   --   lazy = false,
@@ -102,42 +114,44 @@ require("lazy").setup({
   -- require "plugins.neo-tree",
   require "plugins.gitsigns",
   require "plugins.whichkey",
-  require "plugins.telescope",
+  -- require "plugins.telescope",
   require "plugins.lsp",
   require "plugins.treesitter",
   -- require "plugins.autocompletion",
   require "plugins.blink",
   require "plugins.autoformat",
   require "plugins.mini",
+  require "plugins.lualine",
   require "plugins.neotest",
   require "plugins.bufferline",
   require "plugins.rainbow-delim",
   require "plugins.flash",
   require "plugins.autotag",
   require "plugins.snacks",
-  require "plugins.trouble",
+  -- require "plugins.trouble",
   -- require "plugins.noice",
-}, {
-  ui = {
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = "⌘",
-      config = "🛠",
-      event = "📅",
-      ft = "📂",
-      init = "⚙",
-      keys = "🗝",
-      plugin = "🔌",
-      runtime = "💻",
-      require = "🌙",
-      source = "📄",
-      start = "🚀",
-      task = "📌",
-      lazy = "💤 ",
-    },
-  },
 })
+--   , {
+--   ui = {
+--     -- If you are using a Nerd Font: set icons to an empty table which will use the
+--     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
+--   --   icons = vim.g.have_nerd_font and {} or {
+--   --     cmd = "⌘",
+--   --     config = "🛠",
+--   --     event = "📅",
+--   --     ft = "📂",
+--   --     init = "⚙",
+--   --     keys = "🗝",
+--   --     plugin = "🔌",
+--   --     runtime = "💻",
+--   --     require = "🌙",
+--   --     source = "📄",
+--   --     start = "🚀",
+--   --     task = "📌",
+--   --     lazy = "💤 ",
+--   --   },
+--   -- },
+-- })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

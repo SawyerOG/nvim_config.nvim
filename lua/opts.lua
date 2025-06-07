@@ -1,41 +1,49 @@
+local opt = vim.opt
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 
 --  For more options, you can see `:help option-list`
+opt.guicursor = {
+  "n-sm:block",
+  "v:hor50",
+  "c-ci-cr-i-ve:ver10",
+  "o-r:hor50",
+}
 
-vim.opt.swapfile = false
-vim.opt.termguicolors = true
-vim.o.pumheight = 10
+opt.swapfile = false
+opt.termguicolors = true
+vim.o.pumheight = 15
 vim.o.conceallevel = 0
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.mouse = "a"
-vim.opt.showmode = false
+opt.number = true
+opt.relativenumber = true
+opt.mouse = "a"
+opt.showmode = false
 vim.schedule(function()
-  vim.opt.clipboard = "unnamedplus"
+  opt.clipboard = "unnamedplus"
 end)
-vim.opt.breakindent = true
-vim.opt.undofile = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
--- vim.opt.signcolumn = 'yes'
-vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+opt.breakindent = true
+opt.undofile = true
+opt.ignorecase = true
+opt.smartcase = true
+opt.signcolumn = 'yes'
+opt.updatetime = 300
+opt.timeoutlen = 300
+opt.splitright = true
+opt.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+opt.list = true
+opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Preview substitutions live, as you type!
-vim.opt.inccommand = "split"
+opt.inccommand = "split"
 
 -- Show which line your cursor is on
-vim.opt.cursorline = true
+opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+opt.scrolloff = 10

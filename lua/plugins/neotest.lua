@@ -8,14 +8,16 @@ return {
       "nvim-treesitter/nvim-treesitter",
       { "fredrikaverpil/neotest-golang", version = "*" }, -- Installation
     },
+    event = "VeryLazy",
+    lazy = true,
     config = function()
       local neotest_golang_opts = {
         go_test_args = { "-v", "-timeout", "30s" }, -- Verbose output like go test -v
-        warn_test_name_dupes = true, -- Warn about duplicate test names
-      } -- Specify custom configuration
+        warn_test_name_dupes = true,                -- Warn about duplicate test names
+      }                                             -- Specify custom configuration
       require("neotest").setup {
         adapters = {
-          require "neotest-golang"(neotest_golang_opts), -- Registration
+          require "neotest-golang" (neotest_golang_opts), -- Registration
         },
       }
 
